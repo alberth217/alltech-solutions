@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-dark-base text-gray-200 font-sans antialiased;
+  }
+}
+
+@layer utilities {
+  .text-glow-blue {
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.7);
+  }
+  .box-glow-blue {
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+  }
+  .glass-panel {
+    @apply bg-dark-surface/80 backdrop-blur-md border border-gray-800 rounded-xl;
+  }
+}
