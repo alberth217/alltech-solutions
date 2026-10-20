@@ -15,6 +15,7 @@ export default {
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
+        display: ['Outfit', 'Inter', 'sans-serif'],
         mono: ['Fira Code', 'monospace'],
       },
     },

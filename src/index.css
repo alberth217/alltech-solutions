@@ -1,23 +1,68 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     @apply bg-dark-base text-gray-200 font-sans antialiased;
+  }
+  :focus-visible {
+    @apply outline-none ring-2 ring-neon-blue ring-offset-2 ring-offset-dark-base;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply font-mono text-sm font-medium uppercase tracking-[0.2em] text-neon-blue;
+  }
+  .nav-link {
+    @apply relative;
+  }
+  .nav-link::after {
+    content: '';
+    @apply absolute left-3 right-3 bottom-1 h-px origin-left scale-x-0 bg-neon-blue transition-transform duration-300;
+  }
+  .nav-link:hover::after {
+    @apply scale-x-100;
+  }
+  .hero-backdrop {
+    @apply pointer-events-none absolute inset-0 -z-0;
+    background-image:
+      radial-gradient(ellipse 60% 50% at 50% 0%, rgba(0, 240, 255, 0.12), transparent 70%),
+      linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 100% 100%, 64px 64px, 64px 64px;
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 20%, black 30%, transparent 80%);
   }
 }
 
 @layer utilities {
   .text-glow-blue {
-    text-shadow: 0 0 10px rgba(0, 240, 255, 0.7);
+    text-shadow: 0 0 24px rgba(0, 240, 255, 0.6);
   }
   .box-glow-blue {
-    box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+    box-shadow: 0 0 24px rgba(0, 240, 255, 0.25);
   }
   .glass-panel {
     @apply bg-dark-surface/80 backdrop-blur-md border border-gray-800 rounded-xl;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
   }
 }
